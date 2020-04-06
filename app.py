@@ -12,7 +12,7 @@ import sqlite3
 
 
 # connection to MongoDB Database
-connection = MongoClient("mongodb://localhost:27017/")
+connection = MongoClient("mongodb://Michal:<Mass1000>@productreviewer-shard-00-00-i8ukj.azure.mongodb.net:27017,productreviewer-shard-00-01-i8ukj.azure.mongodb.net:27017,productreviewer-shard-00-02-i8ukj.azure.mongodb.net:27017/test?ssl=true&replicaSet=productreviewer-shard-0&authSource=admin&retryWrites=true&w=majority")
 
 # Object creation
 app = Flask(__name__)
