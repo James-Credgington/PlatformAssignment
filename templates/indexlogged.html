@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Shop</title>
+    <link rel="stylesheet" href="../static/webstyle.css">
+    <link rel="stylesheet" href="../static/css/Bootstrap.css">
+  </head>
+
+
+  <body>
+    {% if show_predictions_modal %}
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>You are already logged in!</h2>
+        <p style="margin-top:30px;">Click <a href="/logoutt">here</a> if you would like to be logged out of the website.</p>
+        <button id="okaybtn" class="site-btn login-btn">Okay</button>
+      </div>
+
+    </div>
+  {% endif %}
+    <header id="header" id="home">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+              <ul>
+              <li><a href="/profile">Welcome {{ session }}</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
+              <a href="/profile">Profile</a>
+              <a style="color:white;">|</a>
+              <a href="/logout">Log Out</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container main-menu">
+      <div class="row align-items-center justify-content-between d-flex">
+        <div id="logo">
+          <a href="index"><img src="../static/img/logo2.png" alt="" title="" /></a>
+        </div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="index">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+      <div class="row fullscreen d-flex align-items-center justify-content-center">
+        <div class="banner-content col-lg-12 col-md-12">
+          <h6 class="text-uppercase">Welcome to our website</h6>
+          <h1>
+            We have a great selection of products
+          </h1>
+          <a href="/shop" class="primary-btn header-btn text-uppercase">Take A Look</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="home-about-area section-gap" id="about">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12 col-md-12 home-about-left">
+          <h6>Hello</h6>
+          <h1>
+            Welcome to our <br>
+            shopping website
+          </h1>
+          <p class="sub">Our shop offers a range of products</p>
+          <p class="pb-20">
+            You can take a look for yourself by clicking the button below, you will be able to see our great range of products. Not only that, you will also be able to leave them a review. However, it is advised that you login first, or create a brand new account if you don't already have one as there are additional features to the website.
+          </p>
+          <a class="primary-btn" href="/shop">Have a look at our products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <script>
+      // Check browser support
+      if (typeof(Storage) !== "undefined") {
+      // Store
+        localStorage.setItem("sessionid","{{ session }}" );
+      // Retrieve
+        document.getElementById("react").innerHTML = localStorage.getItem("sessionid");
+      } else {
+        document.getElementById("react").innerHTML = "Sorry, your browser does not support Web Storage...";
+      }
+      </script>
+
+      <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var btn = document.getElementById("okaybtn");
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        btn.onclick = function(){
+          modal.style.display = "none";
+        }
+      </script>
+
+
+
+      <footer class="footer-area section-gap">
+        <div class="container">
+          <div class="row">
+            <div class="footer-about-us col-lg-5 col-md-6 col-sm-6">
+              <div class="footer-section-area">
+                <h6>About Us</h6>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                </p>
+                <p class="footer-text">
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to Tomas Zurankovas, James Credgington and Michal M
+                </p>
+              </div>
+            </div>
+            <div class="footer-nav-links col-lg-5 col-md-6 col-sm-6">
+              <div class="footer-section-area">
+                <h6>Links</h6>
+                <p class="footer-text-link">
+                  <a href="index">Home</a>
+                </p>
+                <p class="footer-text-link">
+                  <a href="/shop">Shop</a>
+                </p>
+                <p class="footer-text-link">
+                  <a href="/signin">Log In</a>
+                </p>
+                <p class="footer-text-link">
+                  <a href="/alreadysignup">Sign Up</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- scripts -->
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery-1.12.4.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://npmcdn.com/react-router@2.8.1/umd/ReactRouter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <!-- <script type="text/jsx" src="../static/main.jsx"></script> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./static/build/bundle.js"></script>
+
+  </body>
+</html>

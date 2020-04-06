@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Item | Shop</title>
+    <link rel="stylesheet" href="../static/webstyle.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/elegant-icons.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+  </head>
+
+
+
+  <body>
+
+    <header id="header" id="home">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+              <ul>
+              <li><a href="#"></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
+              <a href="/signin">Log In</a>
+              <a style="color:white;">|</a>
+              <a href="/signup">Sign Up</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+      <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+          <a href="index"><img src="../static/img/logo2.png" alt="" title="" /></a>
+          </div>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-active"><a href="index">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Shop Item</h2>
+                        <div class="breadcrumb-option">
+                            <a href="index">Home</a>
+                            <span>Shop Item</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container single-product-section">
+  		<div class="row">
+  			<div class="col-lg-7">
+  				<div class="single-product-img-area">
+  					<div class="row">
+  						<div class="col-lg-11 single-product-img-column order-lg-2 order-1">
+  							<div class="single-product-image">
+  								<div class="single-product-image-background" style="background-image:url(../static/img/item-1.jpg)"></div>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-lg-5">
+  				<div class="product_details">
+  					<div class="product_details_title">
+  						<h2>Essential Oil</h2>
+  						<p>This the essential oil which can be used to cleanse your skin or to be used as shampooing your hair. It is a great product for all genders and ages</p>
+  					</div>
+  					<div class="original_price">£39.99</div>
+  					<div class="product_price">£19.99</div>
+  					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+  						<span>Quantity:</span>
+  						<div class="quantity_selector">
+  							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+  							<span id="quantity_value">1</span>
+  							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+  						</div>
+              <a style="margin-left:15px;" class="primary-btn" href="/shop">Add to basket</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  	</div>
+
+  	<!-- Tabs -->
+    <div id="myModal" class="modalclose">
+      <!-- Modal content -->
+      <div class="modal-content-close">
+        <h2>NOTE: Important information you must read!</h2>
+        <p style="margin-top:30px; font-size: 25px;">Please make sure you are logged in to see the reviews and/or to post a review.
+                                    If you do not have an account yet <a href="/signup">click</a> here to take you to the sign up page.</p>
+      </div>
+      </div>
+  	<div class="review-section">
+
+  		<div class="container">
+  			<div class="row">
+  				<div class="col">
+
+  					<!-- Tab Reviews -->
+
+  					<div id="review-tab" class="tab_container active">
+  						<div class="row">
+
+  							<!-- User Reviews -->
+
+  							<div class="col-lg-6 reviews_col">
+  								<div class="tab_title reviews_title">
+  									<h4>Reviews</h4>
+  								</div>
+
+  								<!-- User Review -->
+
+                  <div class="user_review_container d-flex flex-column flex-sm-row">
+  									<div class="review">
+                      <ul data-bind="foreach: tweets_list, visible: tweets_list().length > 0">
+                        <li>
+                           <div class="user_name" data-bind="text: username"></div>
+                           <p data-bind="text: body"></p>
+                           <p data-bind="text: timestamp"></p>
+                        </li>
+                      </ul>
+  									</div>
+  								</div>
+
+  							</div>
+
+  							<!-- Add Review -->
+
+  							<div class="col-lg-6 add-review-section">
+
+  								<div class="add_review">
+  									<form id="review_form" action="post">
+  										<div>
+  											<h1>Add Review</h1>
+  											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+  											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+  											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+  										</div>
+  										<div class="text-left text-sm-right">
+  											<button id="review_submit" type="submit" class="primary-btn review_submit_btn trans_300" value="Submit">submit</button>
+  										</div>
+  									</form>
+  								</div>
+
+  							</div>
+
+  						</div>
+  					</div>
+
+  				</div>
+  			</div>
+  		</div>
+
+  	</div>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>
+
+    <footer class="footer-area section-gap">
+      <div class="container">
+        <div class="row">
+          <div class="footer-about-us col-lg-5 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>About Us</h6>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+              </p>
+              <p class="footer-text">
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to Tomas Zurankovas, James Credgington and Michal M
+              </p>
+            </div>
+          </div>
+          <div class="footer-nav-links col-lg-5 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Links</h6>
+              <p class="footer-text-link">
+                <a href="index">Home</a>
+              </p>
+              <p class="footer-text-link">
+                <a href="/shop">Shop</a>
+              </p>
+              <p class="footer-text-link">
+                <a href="/signin">Log In</a>
+              </p>
+              <p class="footer-text-link">
+                <a href="/signup">Sign Up</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery-1.12.4.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://npmcdn.com/react-router@2.8.1/umd/ReactRouter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <!-- <script type="text/jsx" src="../static/main.jsx"></script> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./static/build/bundle.js"></script>
+
+
+  </body>
+</html>
